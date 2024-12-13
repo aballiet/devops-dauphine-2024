@@ -86,12 +86,12 @@
 
     ```YAML
     services:
-    web:
-        build: .
-        ports:
-        - "8000:5000"
-    redis:
-        image: "redis:alpine"
+        web:
+            build: .
+            ports:
+            - "8000:5000"
+        redis:
+            image: "redis:alpine"
     ```
 
     > Ce fichier Compose définit deux services : web et redis.
