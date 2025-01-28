@@ -13,14 +13,15 @@ terraform {
 
 provider "google" {
   project = "VOTRE_PROJET_GCP" # TODO: REMPLACER PAR SON PROJET GCP
-  region  = "us-central1"
+  region  = "europe-west2"
+  zone    = "europe-west2"
 }
 
 provider "helm" {
   kubernetes {
-    host                   = google_container_cluster.autopilot.endpoint
+    host                   = google_container_cluster.gke_cluster.endpoint
     token                  = data.google_client_config.default.access_token
-    cluster_ca_certificate = base64decode(google_container_cluster.autopilot.master_auth[0].cluster_ca_certificate)
+    cluster_ca_certificate = base64decode(google_container_cluster.gke_cluster.master_auth[0].cluster_ca_certificate)
   }
 }
 
