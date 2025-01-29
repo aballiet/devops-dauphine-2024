@@ -1,0 +1,15 @@
+steps:
+  - id: 'terraform init'
+    name: 'hashicorp/terraform:1.5.7'
+    script: terraform init
+    dir: ./exemple/cloudbuild-terraform
+
+  - id: 'terraform plan'
+    name: 'hashicorp/terraform:1.5.7'
+    script: terraform plan
+    dir: ./exemple/cloudbuild-terraform
+
+  - id: 'terraform apply'
+    name: 'hashicorp/terraform:1.5.7'
+    script: terraform apply --auto-approve
+    dir: ./exemple/cloudbuild-terraform
